@@ -13,9 +13,10 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { SubscriptionFormComponent } from './subscription-form/subscription-form.component';
 import { CommentFormComponent } from './comments/comment-form/comment-form.component';
 import { CommentListComponent } from './comments/comment-list/comment-list.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, CategoryNavbarComponent, HomeComponent, SingleCategoryComponent, SinglePostComponent, TermsAndConditionComponent, ContactUsComponent, SubscriptionFormComponent, CommentFormComponent, CommentListComponent],
+  declarations: [AppComponent, HeaderComponent, CategoryNavbarComponent, HomeComponent, SingleCategoryComponent, SinglePostComponent, TermsAndConditionComponent, ContactUsComponent, SubscriptionFormComponent, CommentFormComponent, CommentListComponent, AboutUsComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
