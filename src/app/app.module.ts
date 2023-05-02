@@ -14,9 +14,24 @@ import { SubscriptionFormComponent } from './subscription-form/subscription-form
 import { CommentFormComponent } from './comments/comment-form/comment-form.component';
 import { CommentListComponent } from './comments/comment-list/comment-list.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { FooterComponent } from './layouts/footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, CategoryNavbarComponent, HomeComponent, SingleCategoryComponent, SinglePostComponent, TermsAndConditionComponent, ContactUsComponent, SubscriptionFormComponent, CommentFormComponent, CommentListComponent, AboutUsComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    CategoryNavbarComponent,
+    HomeComponent,
+    SingleCategoryComponent,
+    SinglePostComponent,
+    TermsAndConditionComponent,
+    ContactUsComponent,
+    SubscriptionFormComponent,
+    CommentFormComponent,
+    CommentListComponent,
+    AboutUsComponent,
+    FooterComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
