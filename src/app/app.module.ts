@@ -15,6 +15,7 @@ import { CommentFormComponent } from './comments/comment-form/comment-form.compo
 import { CommentListComponent } from './comments/comment-list/comment-list.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { FooterComponent } from './layouts/footer/footer.component';
+import { PostCardComponent } from './layouts/post-card/post-card.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FooterComponent } from './layouts/footer/footer.component';
     CommentListComponent,
     AboutUsComponent,
     FooterComponent,
+    PostCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
