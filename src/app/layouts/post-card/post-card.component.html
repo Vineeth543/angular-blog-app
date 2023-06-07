@@ -1,16 +1,28 @@
-<div class="card shadow-effect mb-3" role="button" routerLink="/post">
-  <img [src]="randomImage()" alt="post-image" class="card-img-top" />
+<div
+  *ngIf="postData"
+  class="card shadow-effect mb-3"
+  role="button"
+  routerLink="/post"
+>
+  <img
+    [src]="postData.data.postImgPath"
+    alt="post-image"
+    class="card-img-top"
+  />
   <div class="card-body">
-    <span class="bg-light text-danger text-center">Design</span>
+    <span class="bg-light text-danger text-center">{{
+      postData.data.category.category
+    }}</span>
     <span class="bg-light text-success text-center ms-3">Featured</span>
-    <span class="bg-light text-info text-center ms-3">Views - 100,256</span>
-    <h5 class="mt-1">HOW TO START A BLOG IN 2023 EDITED NEW CATEGORY</h5>
+    <span class="bg-light text-info text-center ms-3"
+      >Views - {{ postData.data.views }}</span
+    >
+    <h5 class="mt-1">{{ postData.data.title }}</h5>
     <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae
-      officia laboriosam molestias ut quo velit itaque pariatur.
+      {{ postData.data.excerpt }}
     </p>
     <span class="bg-light text-warning text-center"
-      >LAST UPDATED - SEP 20, 2023</span
+      >LAST UPDATED - {{ postData.data.createdAt }}</span
     >
   </div>
 </div>
