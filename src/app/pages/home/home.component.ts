@@ -9,5 +9,7 @@ import { PostService } from 'src/app/services/post.service';
 export class HomeComponent {
   constructor(private postService: PostService) {}
 
-  posts$ = this.postService.loadFeaturedPost();
+  featuredPosts$ = this.postService.loadFeaturedPosts();
+
+  latestPosts$ = this.postService.loadLatestPosts();
 }
