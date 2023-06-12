@@ -4,11 +4,9 @@
   role="button"
   routerLink="/post"
 >
-  <img
-    [src]="postData.data.postImgPath"
-    alt="post-image"
-    class="card-img-top"
-  />
+  <div class="card-img-top">
+    <img [src]="postData.data.postImgPath" alt="post-image" />
+  </div>
   <div class="card-body">
     <span class="bg-light text-danger text-center">{{
       postData.data.category.category
@@ -22,7 +20,7 @@
       {{ postData.data.excerpt }}
     </p>
     <span class="bg-light text-warning text-center"
-      >LAST UPDATED - {{ postData.data.createdAt }}</span
+      >LAST UPDATED - {{ formatDate(postData.data.createdAt) }}</span
     >
   </div>
 </div>
