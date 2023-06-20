@@ -10,7 +10,7 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
-  { path: 'category', component: SingleCategoryComponent },
+  { path: 'category/:category/:id', component: SingleCategoryComponent },
   { path: 'post', component: SinglePostComponent },
   { path: 'about', component: AboutUsComponent },
   { path: 'term-condition', component: TermsAndConditionComponent },
