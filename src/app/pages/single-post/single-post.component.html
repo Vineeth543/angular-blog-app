@@ -1,74 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
-      <div class="card shadow-effect my-3">
-        <img [src]="randomImage()" alt="card-img" />
+      <div *ngIf="post$ | async as post" class="card shadow-effect my-3">
+        <img [src]="post.postImgPath" alt="card-img" />
         <div class="card-body">
-          <span class="bg-light text-danger text-center">Design</span>
+          <span class="bg-light text-danger text-center">{{
+            post.category.category
+          }}</span>
           <span class="bg-light text-sucess text-center ms-2">Featured</span>
           <span class="bg-light text-info text-center ms-2"
-            >Views - 100,256</span
+            >Views - {{ post.views }}</span
           >
           <span class="bg-light text-warning text-center ms-2"
-            >LAST UPDATED - SEP 20, 2021</span
+            >LAST UPDATED - {{ formatDate(post.createdAt) }}</span
           >
-          <h1 class="my-3">HOW TO START A BLOG IN 2021 EDITED NEW CATEGORY</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui,
-            assumenda numquam? Laudantium consectetur quisquam, quos, nostrum
-            optio repudiandae aperiam nisi iure eos quasi magni? Delectus,
-            atque? Eius consequuntur beatae ab. Doloremque suscipit quod sint
-            porro fugiat qui enim consectetur facere debitis animi quas repellat
-            quis distinctio natus, rerum eos ea. Ea adipisci fuga recusandae
-            iste deleniti consequuntur, totam sint nisi dolorum numquam nobis
-            cupiditate. Numquam eum, expedita qui exercitationem cumque delectus
-            molestiae sapiente, recusandae quia similique nulla? Laborum fuga,
-            autem totam similique dolorum error saepe magnam, consectetur, nam
-            quisquam odit itaque sapiente. Fuga numquam in architecto officia
-            dolor repellat pariatur.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui,
-            assumenda numquam? Laudantium consectetur quisquam, quos, nostrum
-            optio repudiandae aperiam nisi iure eos quasi magni? Delectus,
-            atque? Eius consequuntur beatae ab. Doloremque suscipit quod sint
-            porro fugiat qui enim consectetur facere debitis animi quas repellat
-            quis distinctio natus, rerum eos ea. Ea adipisci fuga recusandae
-            iste deleniti consequuntur, totam sint nisi dolorum numquam nobis
-            cupiditate. Numquam eum, expedita qui exercitationem cumque delectus
-            molestiae sapiente, recusandae quia similique nulla? Laborum fuga,
-            autem totam similique dolorum error saepe magnam, consectetur, nam
-            quisquam odit itaque sapiente. Fuga numquam in architecto officia
-            dolor repellat pariatur.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui,
-            assumenda numquam? Laudantium consectetur quisquam, quos, nostrum
-            optio repudiandae aperiam nisi iure eos quasi magni? Delectus,
-            atque? Eius consequuntur beatae ab. Doloremque suscipit quod sint
-            porro fugiat qui enim consectetur facere debitis animi quas repellat
-            quis distinctio natus, rerum eos ea. Ea adipisci fuga recusandae
-            iste deleniti consequuntur, totam sint nisi dolorum numquam nobis
-            cupiditate. Numquam eum, expedita qui exercitationem cumque delectus
-            molestiae sapiente, recusandae quia similique nulla? Laborum fuga,
-            autem totam similique dolorum error saepe magnam, consectetur, nam
-            quisquam odit itaque sapiente. Fuga numquam in architecto officia
-            dolor repellat pariatur.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui,
-            assumenda numquam? Laudantium consectetur quisquam, quos, nostrum
-            optio repudiandae aperiam nisi iure eos quasi magni? Delectus,
-            atque? Eius consequuntur beatae ab. Doloremque suscipit quod sint
-            porro fugiat qui enim consectetur facere debitis animi quas repellat
-            quis distinctio natus, rerum eos ea. Ea adipisci fuga recusandae
-            iste deleniti consequuntur, totam sint nisi dolorum numquam nobis
-            cupiditate. Numquam eum, expedita qui exercitationem cumque delectus
-            molestiae sapiente, recusandae quia similique nulla? Laborum fuga,
-            autem totam similique dolorum error saepe magnam, consectetur, nam
-            quisquam odit itaque sapiente. Fuga numquam in architecto officia
-            dolor repellat pariatur.
-          </p>
+          <h1 class="my-3">{{ post.title }}</h1>
+          <p [innerHtml]="post.content"></p>
         </div>
       </div>
       <app-comment-form></app-comment-form>

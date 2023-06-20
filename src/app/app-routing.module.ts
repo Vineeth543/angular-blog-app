@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
   { path: 'category/:category/:id', component: SingleCategoryComponent },
-  { path: 'post', component: SinglePostComponent },
+  { path: 'post/:id', component: SinglePostComponent },
   { path: 'about', component: AboutUsComponent },
   { path: 'term-condition', component: TermsAndConditionComponent },
   { path: 'contact', component: ContactUsComponent },

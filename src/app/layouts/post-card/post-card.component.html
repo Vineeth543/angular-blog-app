@@ -2,7 +2,7 @@
   *ngIf="postData"
   class="card shadow-effect mb-3"
   role="button"
-  routerLink="/post"
+  routerLink="/post/{{ postData.id }}"
 >
   <div class="card-img-top">
     <img [src]="postData.data.postImgPath" alt="post-image" />

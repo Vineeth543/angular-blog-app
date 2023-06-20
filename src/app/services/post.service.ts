@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Post } from '../models/post';
 import { Injectable } from '@angular/core';
@@ -56,5 +57,12 @@ export class PostService {
           })
         )
       );
+  }
+
+  loadOnePost(postId: string): Observable<Post> {
+    return this.afs
+      .doc<Post>(`posts/${postId}`)
+      .valueChanges()
+      .pipe(map((post) => post as Post));
   }
 }
