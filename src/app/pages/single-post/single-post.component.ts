@@ -19,12 +19,12 @@ export class SinglePostComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      ({ id }) =>
-        (this.post$ = this.postService
-          .loadOnePost(id)
-          .pipe(tap((post) => this.loadSimilarPosts(post.category.categoryId))))
-    );
+    this.route.params.subscribe(({ id }) => {
+      this.post$ = this.postService
+        .loadOnePost(id)
+        .pipe(tap((post) => this.loadSimilarPosts(post.category.categoryId)));
+      this.postService.incrementViews(id);
+    });
   }
 
   formatDate(date: any): string {

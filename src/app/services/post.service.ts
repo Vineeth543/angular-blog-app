@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Post } from '../models/post';
 import { Injectable } from '@angular/core';
+import * as firebase from 'firebase/compat/app';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
@@ -83,5 +84,17 @@ export class PostService {
           })
         )
       );
+  }
+
+  incrementViews(postId: string): void {
+    const viewsCount = {
+      views: firebase.default.firestore.FieldValue.increment(1),
+    };
+
+    this.afs
+      .doc(`posts/${postId}`)
+      .update(viewsCount)
+      .then(() => console.log('Views Updated..!'))
+      .catch((error) => console.log(error));
   }
 }

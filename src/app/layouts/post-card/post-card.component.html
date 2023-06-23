@@ -11,7 +11,11 @@
     <span class="bg-light text-danger text-center">{{
       postData.data.category.category
     }}</span>
-    <span class="bg-light text-success text-center ms-3">Featured</span>
+    <span
+      *ngIf="postData.data.isFeatured"
+      class="bg-light text-success text-center ms-3"
+      >Featured</span
+    >
     <span class="bg-light text-info text-center ms-3"
       >Views - {{ postData.data.views }}</span
     >
