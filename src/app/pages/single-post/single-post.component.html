@@ -7,7 +7,11 @@
           <span class="bg-light text-danger text-center">{{
             post.category.category
           }}</span>
-          <span class="bg-light text-sucess text-center ms-2">Featured</span>
+          <span
+            *ngIf="post.isFeatured"
+            class="bg-light text-sucess text-center ms-2"
+            >Featured</span
+          >
           <span class="bg-light text-info text-center ms-2"
             >Views - {{ post.views }}</span
           >
@@ -22,9 +26,9 @@
       <app-comment-list></app-comment-list>
     </div>
     <div class="col-md-3 my-3">
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
+      <div *ngFor="let post of similerPosts$ | async">
+        <app-post-card [postData]="post"></app-post-card>
+      </div>
     </div>
   </div>
 </div>

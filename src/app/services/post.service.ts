@@ -65,4 +65,23 @@ export class PostService {
       .valueChanges()
       .pipe(map((post) => post as Post));
   }
+
+  loadSimilarPosts(
+    categoryId: string
+  ): Observable<{ id: string; data: Post }[]> {
+    return this.afs
+      .collection('posts', (ref) =>
+        ref.where('category.categoryId', '==', categoryId).limit(4)
+      )
+      .snapshotChanges()
+      .pipe(
+        map((actions) =>
+          actions.map((a) => {
+            const id = a.payload.doc.id;
+            const data = a.payload.doc.data() as Post;
+            return { id, data };
+          })
+        )
+      );
+  }
 }

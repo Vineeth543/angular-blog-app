@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Post } from 'src/app/models/post';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -11,6 +11,7 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class SinglePostComponent implements OnInit {
   post$!: Observable<Post>;
+  similerPosts$!: Observable<{ id: string; data: Post }[]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,7 +20,10 @@ export class SinglePostComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(
-      ({ id }) => (this.post$ = this.postService.loadOnePost(id))
+      ({ id }) =>
+        (this.post$ = this.postService
+          .loadOnePost(id)
+          .pipe(tap((post) => this.loadSimilarPosts(post.category.categoryId))))
     );
   }
 
@@ -29,5 +33,9 @@ export class SinglePostComponent implements OnInit {
       day: 'numeric',
       year: 'numeric',
     }).format(new Date(date.seconds * 1000));
+  }
+
+  loadSimilarPosts(categoryId: string): void {
+    this.similerPosts$ = this.postService.loadSimilarPosts(categoryId);
   }
 }
